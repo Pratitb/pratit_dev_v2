@@ -137,6 +137,18 @@ body{
 }
 .atf_cta_icon{
     margin: 0 0 0 10px;
+    animation: up_down 1s linear infinite;
+}
+@keyframes up_down {
+    0%{
+        transform: translateY(-5px);
+    }
+    50%{
+        transform: translateY(5px);
+    }
+    100%{
+        transform: translateY(-5px);
+    }
 }
 /* dark mode css ***********************************************************/
 .dark_styles_active .pre_head{
