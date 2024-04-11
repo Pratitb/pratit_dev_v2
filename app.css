@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 :root{
     /* --primary-color: aliceblue; */
@@ -19,6 +20,8 @@
     /* --primary-color: lightskyblue; */
     --dark-mode-dimensions: 20px;
     --nav-link-underline: 3px;
+    --dark-border: 0.1px solid var(--secondary-color);
+    --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 body{
     font-family: "Poppins", sans-serif;
@@ -135,6 +138,7 @@ body{
 .desk_nav_links:hover{
     text-decoration: solid underline var(--primary-color) var(--nav-link-underline);
 }
+/* dark mode */
 .dark_mode{
     width: 60px;
     height: 30px;
@@ -143,7 +147,7 @@ body{
     cursor: pointer;
     transition: 0.5s background-color;
     background-color: var(--secondary-color);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    box-shadow: var(--box-shadow)
 }
 .dark_mode_button{
     width: var(--dark-mode-dimensions);
@@ -165,8 +169,8 @@ body{
     transition: 1s all;
 }
 .atf_container{
-    min-height: calc(100vh - 94px);
-    padding: 50px 0;
+    /* min-height: calc(100vh - 94px); */
+    padding: 100px 0;
     display: flex;
     /* align-items: center; */
 }
@@ -174,7 +178,10 @@ body{
     max-width: 800px;
 }
 .head, .sub_head{
+    opacity: 0;
+    visibility: hidden;
     text-transform: capitalize;
+    transition: all 0.6s;
     color: var(--ternary-color);
 }
 .head{
@@ -189,7 +196,10 @@ body{
     letter-spacing: -1px;
 }
 .atf_image{
+    visibility: hidden;
+    opacity: 0;
     max-width: 300px;
+    transition: all 0.3s;
 }
 .atf_cta{
     width: 100%;
@@ -200,17 +210,19 @@ body{
     font-size: 20px;
     font-weight: 600;
     border-radius: 10px;
+    opacity: 0;
     border: 2px solid transparent;
+    visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
     cursor: pointer;
     color: #fff;
-    transition: 0.3s all;
+    transition: 0.6s all;
     background-color: var(--primary-color);
 }
-.atf_cta:hover{
+.atf_cta:hover, .projects_cta:hover{
     border: 2px solid var(--primary-color);
     background-color: #fff;
     color: var(--primary-color);
@@ -230,12 +242,152 @@ body{
         transform: translateY(-5px);
     }
 }
-/* dark mode css ***********************************************************/
-.dark_styles_active .pre_head{
-    border-bottom: 0.1px solid #fff;
+/* projects */
+.projects{
+    padding: 50px 0;
 }
-.dark_styles_active .pre_head, .dark_styles_active .desktop_nav, .dark_styles_active .atf{
+.projects_container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.project{
+    width: 100%;
+    max-width: 500px;
+    max-height: 250px;
+    opacity: 0;
+    /* padding: 10px; */
+    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+    transition: all 2s;
+    transform: scale(0.5);
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    box-shadow: var(--box-shadow)
+}
+.project_image{
+    max-width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+}
+.project:hover .project_image{
+    animation: scroll_image 3s ease-in-out infinite;
+}
+@keyframes scroll_image {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-400px);
+    }
+}
+.project_details{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 10px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    /* background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.9)); */
+    color: #fff;
+    background: var(--primary-color);
+}
+.project_link{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+}
+.project_link:hover{
+    text-decoration: underline;
+}
+.projects_cta{
+    width: 100%;
+    font-weight: 600;
+    padding: 10px;
+    margin: 100px auto 0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    opacity: 0;
+
+    max-width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    visibility: hidden;
+
+    color: #fff;
+    transition: all 0.3s;
+    background-color: var(--primary-color);
+}
+/* clients */
+.clients{
+    min-height: 540px;
+    padding: 50px 0 100px;
+}
+.clients_container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0 10px;
+}
+.client{
+    width: 100%;
+    max-width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.7s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.client_logo{
+    width: 100%;
+    max-width: 210px;
+    height: 100%;
+    transition: all 0.3s;
+    filter: grayscale(100);
+}
+.client_review{
+    flex: 1 0 0;
+    height: 0;
+    /* margin: 10px 0 0; */
+    line-height: 1.45;
+    letter-spacing: 0.4px;
+    opacity: 0;
+    transition: all 0.7s;
+}
+.review_highlight{
+    font-weight: 600;
+}
+/* dark mode css ***********************************************************/
+/* dark pre head */
+.dark_styles_active .pre_head{
+    border-bottom: var(--dark-border)
+}
+.dark_styles_active .pre_head, .dark_styles_active .desktop_nav, .dark_styles_active .atf, .dark_styles_active .projects, .dark_styles_active .clients{
     background-color: var(--ternary-color);
+}
+.dark_styles_active .client{
+    background-color: var(--secondary-color);
+    border: var(--dark-border);
+}
+.dark_styles_active .clients{
+    border-top: var(--dark-border)
 }
 .dark_styles_active .pre_head_text, .dark_styles_active .desk_nav_links, .dark_styles_active .head, .dark_styles_active .sub_head{
     color: #fff;
@@ -256,4 +408,15 @@ body{
 .visible{
     opacity: 1;
     visibility: visible;
+}
+.scale{
+    transform: scale(1);
+}
+.show_review{
+    height: 300px;
+    margin: 20px 0 0;
+    opacity: 1;
+}
+.color_scale{
+    filter: grayscale(0);
 }
