@@ -15,12 +15,15 @@
     /* --primary-color: #80CBC4; */
     /* --primary-color: #FFB74D; */
     /* --primary-color: royalblue; */
-    --secondary-color: #E6E6FA;
+    /* --secondary-color: #E6E6FA; */
+    --secondary-color: #d5d5f1;
     --ternary-color: #212121;
     /* --primary-color: lightskyblue; */
     --dark-mode-dimensions: 20px;
     --nav-link-underline: 3px;
+    --radius: 10px;
     --dark-border: 0.1px solid var(--secondary-color);
+    /* --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
     --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 body{
@@ -108,20 +111,41 @@ body{
 }
 /* pre head ***********************************************************/
 .pre_head{
+    margin: 20px auto 0;
     text-align: center;
-    padding: 10px;
-    transition: 1s all;
     border: 0.1px solid transparent;
+    
+}
+.pre_head_container{
+    padding: 10px 40px;
+    border-radius: var(--radius);
+    transition: 0.5s all;
     background-color: var(--secondary-color);
+    box-shadow: var(--box-shadow);
+}
+.pre_head_container:hover{
+    transform: scale(1.04);
+    background-color: #b1b1eb;
 }
 .pre_head_text{
     color: var(--ternary-color);
 }
 /* navigation ***********************************************************/
+.desktop_nav{
+    width: max-content;
+    position: relative;
+    z-index: 1;
+    margin: 30px auto;
+    background-color: #fff;
+}
 .nav_container{
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 0 20px;
+    padding: 10px 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--box-shadow);
 }
 .section_nav_links_dark_mode{
     display: flex;
@@ -170,16 +194,21 @@ body{
 }
 .atf_container{
     /* min-height: calc(100vh - 94px); */
-    padding: 100px 0;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    margin: -50px auto 0;
+    border-radius: var(--radius);
+    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+    box-shadow: var(--box-shadow);
     /* align-items: center; */
 }
-.atf_content{
-    max-width: 800px;
-}
 .head, .sub_head{
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
     text-transform: capitalize;
     transition: all 0.6s;
     color: var(--ternary-color);
@@ -191,7 +220,8 @@ body{
 }
 .sub_head{
     font-weight: 700;
-    font-size: 70px;
+    font-size: 60px;
+    margin: 20px 0;
     line-height: 1.2;
     letter-spacing: -1px;
 }
@@ -210,9 +240,9 @@ body{
     font-size: 20px;
     font-weight: 600;
     border-radius: 10px;
-    opacity: 0;
+    opacity: 1;
     border: 2px solid transparent;
-    visibility: hidden;
+    visibility: visible;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -241,6 +271,19 @@ body{
     100%{
         transform: translateY(-5px);
     }
+}
+.cust_reviews{
+    display: flex;
+    gap: 0 20px;
+}
+.review{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.review_text{
+    max-width: 200px;
+    text-align: center;
 }
 /* projects */
 .projects{
@@ -376,20 +419,17 @@ body{
 }
 /* dark mode css ***********************************************************/
 /* dark pre head */
-.dark_styles_active .pre_head{
-    border-bottom: var(--dark-border)
+.dark_styles_active .pre_head_container, .dark_styles_active .nav_container, .dark_styles_active .atf_container, .dark_styles_active .clients{
+    border: var(--dark-border)
 }
-.dark_styles_active .pre_head, .dark_styles_active .desktop_nav, .dark_styles_active .atf, .dark_styles_active .projects, .dark_styles_active .clients{
+.dark_styles_active, .dark_styles_active .pre_head_container, .dark_styles_active .desktop_nav, .dark_styles_active .atf, .dark_styles_active .projects, .dark_styles_active .clients{
     background-color: var(--ternary-color);
 }
 .dark_styles_active .client{
     background-color: var(--secondary-color);
     border: var(--dark-border);
 }
-.dark_styles_active .clients{
-    border-top: var(--dark-border)
-}
-.dark_styles_active .pre_head_text, .dark_styles_active .desk_nav_links, .dark_styles_active .head, .dark_styles_active .sub_head{
+.dark_styles_active .pre_head_text, .dark_styles_active .desk_nav_links, .dark_styles_active .head, .dark_styles_active .sub_head, .dark_styles_active .review_text{
     color: #fff;
 }
 /* active class ***********************************************************/

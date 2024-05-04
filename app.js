@@ -16,8 +16,8 @@ const App = {
 
 $(document).ready(function(){
     // scroll to top
-    $('html,body').scrollTop(0)
-    $('body').css("overflow", "hidden",);
+    // $('html,body').scrollTop(0)
+    // $('body').css("overflow", "hidden",);
     // pre load cta
     (function showPreLoadAnimation(){
         App.preLoadAnim.addClass('show_preload_animation')
