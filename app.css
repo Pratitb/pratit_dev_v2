@@ -162,7 +162,7 @@ body{
 .desk_nav_links:hover{
     text-decoration: solid underline var(--primary-color) var(--nav-link-underline);
 }
-/* dark mode */
+/* dark mode ***********************************************************/
 .dark_mode{
     width: 60px;
     height: 30px;
@@ -202,6 +202,7 @@ body{
     padding: 80px 20px;
     margin: -50px auto 0;
     border-radius: var(--radius);
+    background-color: #fff;
     /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
     box-shadow: var(--box-shadow);
     /* align-items: center; */
@@ -285,7 +286,7 @@ body{
     max-width: 200px;
     text-align: center;
 }
-/* projects */
+/* projects ***********************************************************/
 .projects{
     padding: 50px 0;
 }
@@ -375,48 +376,55 @@ body{
     transition: all 0.3s;
     background-color: var(--primary-color);
 }
-/* clients */
+/* clients ***********************************************************/
 .clients{
     min-height: 540px;
     padding: 50px 0 100px;
 }
 .clients_container{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 0 10px;
+    gap: 40px 30px;
 }
 .client{
-    width: 100%;
-    max-width: 250px;
+    position: relative;
+    max-width: 500px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: var(--radius);
+    border: 3px solid var(--secondary-color);
+    transition: 0.3s box-shadow;
+}
+.client:hover{
     box-shadow: var(--box-shadow);
-    transition: all 0.7s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
-.client_logo{
-    width: 100%;
-    max-width: 210px;
-    height: 100%;
-    transition: all 0.3s;
-    filter: grayscale(100);
+.client_stars{
+    text-align: right;
 }
-.client_review{
-    flex: 1 0 0;
-    height: 0;
-    /* margin: 10px 0 0; */
-    line-height: 1.45;
-    letter-spacing: 0.4px;
-    opacity: 0;
-    transition: all 0.7s;
+.client_review_head{
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: var(--radius);
+    /* border: 3px solid var(--ternary-color); */
+    background-color: var(--secondary-color);
+    transition: 0.3s transform;
+    transform: rotate(-3deg);
 }
-.review_highlight{
+.client:hover .client_review_head{
+    transform: rotate(0);
+}
+.client_text{
+    margin: 10px 0;
+}
+.review_name{
     font-weight: 600;
+    color: var(--primary-color);
 }
+
 /* dark mode css ***********************************************************/
 /* dark pre head */
 .dark_styles_active .pre_head_container, .dark_styles_active .nav_container, .dark_styles_active .atf_container, .dark_styles_active .clients{
