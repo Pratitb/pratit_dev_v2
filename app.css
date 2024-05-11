@@ -165,6 +165,9 @@ body{
 .desk_nav_links:hover{
     text-decoration: solid underline var(--primary-color) var(--nav-link-underline);
 }
+.mobile_menu_btn, .mobile_menu_links{
+    display: none;
+}
 /* dark mode ***********************************************************/
 .dark_mode{
     width: 60px;
@@ -528,6 +531,9 @@ body{
     }
 }
 @media only screen and (max-width: 768px){
+    .mobile_menu_btn{
+        display: flex;
+    }
     .desk_nav_links{
         display: none;
     }
