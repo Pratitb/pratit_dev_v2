@@ -140,13 +140,15 @@ body{
     background-color: #fff;
 }
 .nav_container{
+    border-radius: var(--radius);
+    box-shadow: var(--box-shadow);
+}
+.desktop_nav_links{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0 20px;
     padding: 10px 40px;
-    border-radius: var(--radius);
-    box-shadow: var(--box-shadow);
 }
 .section_nav_links_dark_mode{
     display: flex;
@@ -277,6 +279,7 @@ body{
 }
 .cust_reviews{
     display: flex;
+    flex-wrap: wrap;
     gap: 0 20px;
 }
 .review{
@@ -300,8 +303,8 @@ body{
 }
 .project{
     width: 100%;
-    max-width: 500px;
-    max-height: 250px;
+    max-width: 48%;
+    max-height: 270px;
     opacity: 0;
     /* padding: 10px; */
     position: relative;
@@ -363,7 +366,6 @@ body{
     font-weight: 600;
     padding: 10px;
     margin: 50px auto 0;
-    letter-spacing: 1px;
     border: 2px solid transparent;
     border-radius: 10px;
     opacity: 0;
@@ -450,7 +452,7 @@ body{
 .service{
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    max-width: 480px;
     min-height: 259px;
     padding: 20px;
     border-radius: var(--radius);
@@ -479,7 +481,6 @@ body{
 }
 .service_cta{
     font-weight: 700;
-    letter-spacing: 1px;
     position: relative;
     display: flex;
     align-items: center;
@@ -488,26 +489,193 @@ body{
 }
 .services_arr{
     position: absolute;
-    left: 195px;
+    left: 175px;
     margin: 0 0 0 10px;
     transition: 0.3s left;
 }
 .service_cta:hover .services_arr{
-    left: 205px;
+    left: 195px;
 }
 .service_count, .service_head, .service_des, .service_cta{
     transition: 0.5s color;
 }
-
+/* responsive */
+@media only screen and (max-width: 1024px){
+    .head{
+        font-size: 20px;
+    }
+    .sub_head{
+        font-size: 52px;
+    }
+    .project{
+        max-width: 350px;
+        max-height: 197px;
+    }
+    .client{
+        max-width: 47%;
+    }
+    .client_review_head{
+        top: -22px;
+    }
+    .service{
+        max-width: 48%;
+    }
+    .service_count{
+        font-size: 35px;
+    }
+    .service_head{
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 768px){
+    .desk_nav_links{
+        display: none;
+    }
+    .pre_head_text{
+        font-size: 14px;
+    }
+    .head{
+        font-size: 19px;
+    }
+    .sub_head{
+        font-size: 52px;
+    }
+    .clients{
+        padding: 50px 0;
+    }
+    .client{
+        max-width: 300px;
+    }
+    .client_review_head{
+        font-size: 14px;
+        top: -22px;
+    }
+    .service_count{
+        font-size: 26px;
+    }
+    .service_head{
+        font-size: 18px;
+    }
+    .service_des{
+        font-size: 16px;
+    }
+    .service_cta{
+        font-size: 14px;
+    }
+    .services_arr{
+        left: 150px;
+        font-size: 22px;
+    }
+    .service_cta:hover .services_arr{
+        left: 170px;
+    }
+    /* mobile menu */
+    .mobile_menu_links{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px 0;
+        padding: 20px 0;
+        background-color: #fff;
+        /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+        width: 100%;
+        top: 50px;
+        border-radius: 0 0 10px 10px;
+    }
+    .mobile_link{
+        font-size: 18px;
+        /* font-weight: 500; */
+    }
+}
+@media only screen and (max-width: 540px){
+    .service{
+        max-width: 100%;
+        min-height: auto;
+    }
+    .service_des{
+        flex-grow: 0;
+    }
+}
+@media only screen and (max-width: 425px){
+    .pre_head_text{
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+    .desk_home_btn, .mobile_menu_btn{
+        font-size: 14px;
+    }
+    .desktop_nav{
+        margin: 20px auto;
+    }
+    .atf_container{
+        padding: 50px 20px;
+    }
+    .head{
+        font-size: 12px;
+    }
+    .sub_head{
+        font-size: 32px;
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+    .cust_reviews{
+        justify-content: center;
+        gap: 20px 0;
+    }
+    .review:not(:last-child){
+        display: none;
+    }
+    .review_text{
+        font-size: 14px;
+    }
+    .atf_cta{
+        font-size: 15px;
+        height: 46px;
+        padding: 10px;
+    }
+    .atf_cta_icon{
+        font-size: 16px;
+    }
+    .projects{
+        padding: 30px 0;
+    }
+    .projects_cta{
+        width: 90%;
+        font-size: 13px;
+    }
+}
+@media only screen and (max-width: 375px){
+    .desktop_nav_links{
+        padding: 10px 16px;
+    }
+    .head{
+        font-size: 17px;
+    }
+    .sub_head{
+        font-size: 26px;
+    }
+    .atf_cta, .projects_cta, .client_review_head{
+        font-size: 12px;
+    }
+    .project_details{
+        font-size: 12px;
+    }
+    .client{
+        padding: 10px;
+    }
+    .client_text{
+        font-size: 13px;
+    }
+}
 /* dark mode css ***********************************************************/
 /* dark pre head */
 .dark_styles_active .pre_head_container, .dark_styles_active .nav_container, .dark_styles_active .atf_container, .dark_styles_active .client, .dark_styles_active .client_review_head, .dark_styles_active .service{
     border: var(--dark-border)
 }
-.dark_styles_active .pre_head_text, .dark_styles_active .desk_nav_links, .dark_styles_active .head, .dark_styles_active .sub_head, .dark_styles_active .review_text, .dark_styles_active .client_text, .dark_styles_active .client_review_head, .dark_styles_active .service_count, .dark_styles_active .service_head, .dark_styles_active .service_des{
+.dark_styles_active .pre_head_text, .dark_styles_active .desk_home_btn, .dark_styles_active .mobile_menu_btn, .dark_styles_active .mobile_menu_links, .dark_styles_active .desk_nav_links, .dark_styles_active .head, .dark_styles_active .sub_head, .dark_styles_active .review_text, .dark_styles_active .client_text, .dark_styles_active .client_review_head, .dark_styles_active .service_count, .dark_styles_active .service_head, .dark_styles_active .service_des{
     color: #fff;
 }
-.dark_styles_active, .dark_styles_active .pre_head_container, .dark_styles_active .desktop_nav, .dark_styles_active .atf_container, .dark_styles_active .projects, .dark_styles_active .clients, .dark_styles_active .client, .dark_styles_active .client_review_head, .dark_styles_active .service{
+.dark_styles_active, .dark_styles_active .pre_head_container, .dark_styles_active .desktop_nav, .dark_styles_active .mobile_menu_links, .dark_styles_active .atf_container, .dark_styles_active .projects, .dark_styles_active .clients, .dark_styles_active .client, .dark_styles_active .client_review_head, .dark_styles_active .service{
     background-color: var(--ternary-color);
 }
 /* active class ***********************************************************/
@@ -538,41 +706,6 @@ body{
 .color_scale{
     filter: grayscale(0);
 }
-
-/* responsive */
-@media only screen and (max-width: 1024px){
-    .project{
-        max-width: 350px;
-        max-height: 197px;
-    }
-    .client{
-        max-width: 400px;
-    }
-    .service{
-        max-width: 300px;
-    }
-    .service_count{
-        font-size: 35px;
-    }
-    .service_head{
-        font-size: 20px;
-    }
-}
-@media only screen and (max-width: 768px){
-    .pre_head_text{
-        font-size: 14px;
-    }
-    .head{
-        font-size: 19px;
-    }
-    .sub_head{
-        font-size: 52px;
-    }
-    .client{
-        max-width: 300px;
-    }
-    .client_review_head{
-        font-size: 14px;
-        top: -22px;
-    }
+.menu_closed{
+    display: none;
 }

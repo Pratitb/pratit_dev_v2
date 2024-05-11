@@ -12,6 +12,8 @@ const App = {
     project: $('.project'),
     projectsCta: $('.projects_cta'),
     client: $('.client'),
+    mobMenu: $('.mobile_menu_btn'),
+    mobMenuLink: $('.mobile_link'),
 }
 
 $(document).ready(function(){
@@ -38,6 +40,13 @@ $(document).ready(function(){
         setTimeout(() => {
             showAtfElements()
         }, 1300);
+    })
+    // mobile menu btn click
+    App.mobMenu.on('click', function(){
+        $('.mobile_menu_links').toggleClass('menu_closed')
+    })
+    App.mobMenuLink.on('click', function(){
+        $('.mobile_menu_links').toggleClass('menu_closed')
     })
     // dark mode
     App.darkMode.click(function(){
