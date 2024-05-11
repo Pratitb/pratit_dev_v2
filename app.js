@@ -100,11 +100,15 @@ $(document).ready(function(){
             $('.client .client_review').eq(0).addClass('show_review')
         }, 500);
     })
+    // clients cta click
+    $('.client_cta').on('click', function(){
+        $('.services')[0].scrollIntoView()
+    })
     // activate client card
-    App.client.on('click', function(){
+    /* App.client.on('click', function(){
         $('.client_logo').removeClass('color_scale')
         $('.client_review').removeClass('show_review')
         $(this).find('.client_logo').toggleClass('color_scale')
         $(this).find('.client_review').toggleClass('show_review');
-    })
+    }) */
 })

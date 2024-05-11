@@ -112,6 +112,7 @@ body{
 /* pre head ***********************************************************/
 .pre_head{
     margin: 20px auto 0;
+    padding: 0 20px;
     text-align: center;
     border: 0.1px solid transparent;
     
@@ -190,6 +191,7 @@ body{
 }
 /* atf ***********************************************************/
 .atf{
+    padding: 0 20px;
     transition: 1s all;
 }
 .atf_container{
@@ -360,7 +362,8 @@ body{
     width: 100%;
     font-weight: 600;
     padding: 10px;
-    margin: 100px auto 0;
+    margin: 50px auto 0;
+    letter-spacing: 1px;
     border: 2px solid transparent;
     border-radius: 10px;
     opacity: 0;
@@ -390,10 +393,11 @@ body{
 }
 .client{
     position: relative;
+    cursor: default;
     max-width: 500px;
     padding: 20px;
     border-radius: var(--radius);
-    border: 3px solid var(--secondary-color);
+    border: 2px solid var(--secondary-color);
     transition: 0.3s box-shadow;
 }
 .client:hover{
@@ -406,7 +410,7 @@ body{
     position: absolute;
     top: -15px;
     left: -15px;
-    font-weight: 700;
+    font-weight: 500;
     padding: 10px;
     border-radius: var(--radius);
     /* border: 3px solid var(--ternary-color); */
@@ -424,21 +428,87 @@ body{
     font-weight: 600;
     color: var(--primary-color);
 }
+.client_cta{
+    font-weight: 700;
+    color: var(--ternary-color);
+    background-color: var(--secondary-color);
+}
+.client_cta:hover{
+    color: var(--ternary-color);
+    border: 2px solid var(--secondary-color);
+}
+/* services ***********************************************************/
+.services{
+    padding: 20px 0 30px;
+}
+.services_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.service{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    min-height: 259px;
+    padding: 20px;
+    border-radius: var(--radius);
+    color: var(--ternary-color);
+    background-color: var(--secondary-color);
+    transition: 0.5s background-color;
+}
+.service:hover{
+    background-color: var(--primary-color);
+}
+.service:hover .service_count, .service:hover .service_head, .service:hover .service_des, .service:hover .service_cta{
+    color: #fff;
+}
+.service_count{
+    font-weight: 700;
+    font-size: 40px;
+}
+.service_head{
+    font-size: 22px;
+    font-weight: 600;
+}
+.service_des{
+    font-size: 18px;
+    margin: 10px 0;
+    flex-grow: 1;
+}
+.service_cta{
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: var(--primary-color);
+}
+.services_arr{
+    position: absolute;
+    left: 195px;
+    margin: 0 0 0 10px;
+    transition: 0.3s left;
+}
+.service_cta:hover .services_arr{
+    left: 205px;
+}
+.service_count, .service_head, .service_des, .service_cta{
+    transition: 0.5s color;
+}
 
 /* dark mode css ***********************************************************/
 /* dark pre head */
-.dark_styles_active .pre_head_container, .dark_styles_active .nav_container, .dark_styles_active .atf_container, .dark_styles_active .clients{
+.dark_styles_active .pre_head_container, .dark_styles_active .nav_container, .dark_styles_active .atf_container, .dark_styles_active .client, .dark_styles_active .client_review_head, .dark_styles_active .service{
     border: var(--dark-border)
 }
-.dark_styles_active, .dark_styles_active .pre_head_container, .dark_styles_active .desktop_nav, .dark_styles_active .atf, .dark_styles_active .projects, .dark_styles_active .clients{
-    background-color: var(--ternary-color);
-}
-.dark_styles_active .client{
-    background-color: var(--secondary-color);
-    border: var(--dark-border);
-}
-.dark_styles_active .pre_head_text, .dark_styles_active .desk_nav_links, .dark_styles_active .head, .dark_styles_active .sub_head, .dark_styles_active .review_text{
+.dark_styles_active .pre_head_text, .dark_styles_active .desk_nav_links, .dark_styles_active .head, .dark_styles_active .sub_head, .dark_styles_active .review_text, .dark_styles_active .client_text, .dark_styles_active .client_review_head, .dark_styles_active .service_count, .dark_styles_active .service_head, .dark_styles_active .service_des{
     color: #fff;
+}
+.dark_styles_active, .dark_styles_active .pre_head_container, .dark_styles_active .desktop_nav, .dark_styles_active .atf_container, .dark_styles_active .projects, .dark_styles_active .clients, .dark_styles_active .client, .dark_styles_active .client_review_head, .dark_styles_active .service{
+    background-color: var(--ternary-color);
 }
 /* active class ***********************************************************/
 .dark_mode_active{
@@ -467,4 +537,42 @@ body{
 }
 .color_scale{
     filter: grayscale(0);
+}
+
+/* responsive */
+@media only screen and (max-width: 1024px){
+    .project{
+        max-width: 350px;
+        max-height: 197px;
+    }
+    .client{
+        max-width: 400px;
+    }
+    .service{
+        max-width: 300px;
+    }
+    .service_count{
+        font-size: 35px;
+    }
+    .service_head{
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 768px){
+    .pre_head_text{
+        font-size: 14px;
+    }
+    .head{
+        font-size: 19px;
+    }
+    .sub_head{
+        font-size: 52px;
+    }
+    .client{
+        max-width: 300px;
+    }
+    .client_review_head{
+        font-size: 14px;
+        top: -22px;
+    }
 }
