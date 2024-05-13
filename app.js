@@ -12,8 +12,10 @@ const App = {
     project: $('.project'),
     projectsCta: $('.projects_cta'),
     client: $('.client'),
+    serviceCta: $('.service_cta'),
     mobMenu: $('.mobile_menu_btn'),
     mobMenuLink: $('.mobile_link'),
+    contactCta: $('.contact_cta'),
 }
 
 $(document).ready(function(){
@@ -41,6 +43,7 @@ $(document).ready(function(){
             showAtfElements()
         }, 1300);
     })
+    App.contactCta.on('click', highlightContact)
     // mobile menu btn click
     App.mobMenu.on('click', function(){
         $('.mobile_menu_links').toggleClass('menu_closed')
@@ -113,6 +116,22 @@ $(document).ready(function(){
     $('.client_cta').on('click', function(){
         $('.services')[0].scrollIntoView()
     })
+    // services cta
+    App.serviceCta.on('click', function(){
+        highlightContact()
+    })
+    
+    function highlightContact(){
+        $('.contact')[0].scrollIntoView()
+        setTimeout(() => {
+            $('.method').addClass('scale_method method_active')
+            $('.method_info, .contact_icon').addClass('method_info_active')
+        }, 1000);
+        setTimeout(() => {
+        $('.method').removeClass('scale_method method_active')
+        $('.method_info, .contact_icon').removeClass('method_info_active')
+        }, 2500);
+    }
     // activate client card
     /* App.client.on('click', function(){
         $('.client_logo').removeClass('color_scale')
