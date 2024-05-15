@@ -134,9 +134,11 @@ body{
 /* navigation ***********************************************************/
 .desktop_nav{
     width: max-content;
-    position: relative;
+    position: sticky;
+    top: 1rem;
     z-index: 1;
     margin: 30px auto;
+    border-radius: var(--radius);
     background-color: #fff;
 }
 .nav_container{
@@ -149,6 +151,7 @@ body{
     justify-content: center;
     gap: 0 20px;
     padding: 10px 40px;
+    cursor: pointer;
 }
 .section_nav_links_dark_mode{
     display: flex;
@@ -714,12 +717,15 @@ body{
 }
 /* dark mode css ***********************************************************/
 /* dark pre head */
+/* border */
 .dark_styles_active .pre_head_container, .dark_styles_active .nav_container, .dark_styles_active .atf_container, .dark_styles_active .client, .dark_styles_active .client_review_head, .dark_styles_active .service{
     border: var(--dark-border)
 }
-.dark_styles_active .pre_head_text, .dark_styles_active .desk_home_btn, .dark_styles_active .mobile_menu_btn, .dark_styles_active .mobile_menu_links, .dark_styles_active .desk_nav_links, .dark_styles_active .head, .dark_styles_active .sub_head, .dark_styles_active .review_text, .dark_styles_active .client_text, .dark_styles_active .client_review_head, .dark_styles_active .service_count, .dark_styles_active .service_head, .dark_styles_active .service_des{
+/* color */
+.dark_styles_active .pre_head_text, .dark_styles_active .desk_home_btn, .dark_styles_active .mobile_menu_btn, .dark_styles_active .mobile_menu_links, .dark_styles_active .desk_nav_links, .dark_styles_active .head, .dark_styles_active .sub_head, .dark_styles_active .review_text, .dark_styles_active .client_text, .dark_styles_active .client_review_head, .dark_styles_active .service_count, .dark_styles_active .service_head, .dark_styles_active .service_des, .dark_styles_active .method_info{
     color: #fff;
 }
+/* background */
 .dark_styles_active, .dark_styles_active .pre_head_container, .dark_styles_active .desktop_nav, .dark_styles_active .mobile_menu_links, .dark_styles_active .atf_container, .dark_styles_active .projects, .dark_styles_active .clients, .dark_styles_active .client, .dark_styles_active .client_review_head, .dark_styles_active .service{
     background-color: var(--ternary-color);
 }
