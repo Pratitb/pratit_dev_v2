@@ -356,12 +356,12 @@ body{
     color: #fff;
     background: var(--primary-color);
 }
-.project_link{
+.project_website{
     display: inline-block;
     text-decoration: none;
     color: #fff;
 }
-.project_link:hover{
+.project_website:hover{
     text-decoration: underline;
 }
 .projects_cta{

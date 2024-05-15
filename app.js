@@ -11,8 +11,11 @@ const App = {
     projects: $('.projects'),
     project: $('.project'),
     projectsCta: $('.projects_cta'),
+    projectLink: $('.project_link'),
     client: $('.client'),
+    clientLink: $('.client_link'),
     serviceCta: $('.service_cta'),
+    serviceLink: $('.service_link'),
     mobMenu: $('.mobile_menu_btn'),
     mobMenuLink: $('.mobile_link'),
     contactCta: $('.contact_cta'),
@@ -23,7 +26,7 @@ $(document).ready(function(){
     // $('html,body').scrollTop(0)
     // $('body').css("overflow", "hidden",);
     // pre load cta
-    (function showPreLoadAnimation(){
+    /* (function showPreLoadAnimation(){
         App.preLoadAnim.addClass('show_preload_animation')
         setTimeout(() => {
             App.preLoadMessOne.addClass('visible', "slow")
@@ -34,36 +37,18 @@ $(document).ready(function(){
         setTimeout(() => {
             App.preLoadCta.addClass('visible')
         }, 4000);
-    })();
+    })(); */
     // pre load cta click
-    App.preLoadCta.click(function(){
+    /* App.preLoadCta.click(function(){
         $('body').css('overflow', 'auto')
         App.preLoadAnim.addClass('hide_preload_animation')
         setTimeout(() => {
             showAtfElements()
         }, 1300);
-    })
-    App.contactCta.on('click', highlightContact)
-    // mobile menu btn click
-    App.mobMenu.on('click', function(){
-        $('.mobile_menu_links').toggleClass('menu_closed')
-    })
-    App.mobMenuLink.on('click', function(){
-        $('.mobile_menu_links').toggleClass('menu_closed')
-    })
-    // dark mode
-    App.darkMode.click(function(){
-        if(App.darkMode.hasClass('dark_mode_active')){
-            App.darkMode.removeClass('dark_mode_active')
-            $('body').removeClass('dark_styles_active')
-        }
-        else{
-            App.darkMode.addClass('dark_mode_active')
-            $('body').addClass('dark_styles_active')
-        }
-    })
+    }) */
+
     // show atf elements
-    function showAtfElements(){
+    /* function showAtfElements(){
         App.atfImage.addClass('visible')
         setTimeout(() => {
             App.atfHead.addClass('visible')
@@ -74,15 +59,79 @@ $(document).ready(function(){
         setTimeout(() => {
             App.atfCta.addClass('visible')
         }, 2800);
-    }
-    // atf cta
-    App.atfCta.on('click', function(){
-        App.projects[0].scrollIntoView()
+    } */
+    
+    // navigation
+    App.mobMenu.on('click', function(){
+        $('.mobile_menu_links').toggleClass('menu_closed')
     })
+    App.mobMenuLink.on('click', function(){
+        $('.mobile_menu_links').toggleClass('menu_closed')
+    })
+    App.projectLink.on('click', function(){
+        showProjects()
+    })
+    App.clientLink.on('click', function(){
+        showClients()
+    })
+    App.serviceLink.on('click', function(){
+        showServices()
+    })
+    App.contactCta.on('click', function(){
+        highlightContact()
+    })
+    App.darkMode.click(function(){
+        if(App.darkMode.hasClass('dark_mode_active')){
+            App.darkMode.removeClass('dark_mode_active')
+            $('body').removeClass('dark_styles_active')
+        }
+        else{
+            App.darkMode.addClass('dark_mode_active')
+            $('body').addClass('dark_styles_active')
+        }
+    })
+
+    // go to these sections
+    function showProjects(){
+        App.projects[0].scrollIntoView()
+    }
+    function showClients(){
+        $('.clients')[0].scrollIntoView()
+    }
+    function showServices(){
+        $('.services')[0].scrollIntoView()
+    }
+    function highlightContact(){
+        $('.contact')[0].scrollIntoView()
+        setTimeout(() => {
+            $('.method').addClass('scale_method method_active')
+            $('.method_info, .contact_icon').addClass('method_info_active')
+        }, 1000);
+        setTimeout(() => {
+        $('.method').removeClass('scale_method method_active')
+        $('.method_info, .contact_icon').removeClass('method_info_active')
+        }, 2500);
+    }
+    
+
+    // section ctas
+    App.atfCta.on('click', function(){
+        showProjects()
+    })
+    App.projectsCta.on('click', function(){
+        showClients()        
+    })
+    $('.client_cta').on('click', function(){
+        showServices()
+    })
+    App.serviceCta.on('click', function(){
+        highlightContact()
+    })
+
+    // check if element in view
     $(window).on('scroll', function(){
         ifElementInView('.projects', -300)
     });
-    // check if element in view
     function ifElementInView(element, certainHeight){
         const $element = $(element)
         const viewPortTop = $(window).scrollTop()
@@ -103,40 +152,4 @@ $(document).ready(function(){
             App.projectsCta.removeClass('visible')
         }
     }
-    // projects cta click
-    App.projectsCta.on('click', function(){
-        $('.clients')[0].scrollIntoView()
-        // console.log($('.client .client_review').eq(0));
-        setTimeout(() => {
-            $('.client_logo').eq(0).addClass('color_scale')
-            $('.client .client_review').eq(0).addClass('show_review')
-        }, 500);
-    })
-    // clients cta click
-    $('.client_cta').on('click', function(){
-        $('.services')[0].scrollIntoView()
-    })
-    // services cta
-    App.serviceCta.on('click', function(){
-        highlightContact()
-    })
-    
-    function highlightContact(){
-        $('.contact')[0].scrollIntoView()
-        setTimeout(() => {
-            $('.method').addClass('scale_method method_active')
-            $('.method_info, .contact_icon').addClass('method_info_active')
-        }, 1000);
-        setTimeout(() => {
-        $('.method').removeClass('scale_method method_active')
-        $('.method_info, .contact_icon').removeClass('method_info_active')
-        }, 2500);
-    }
-    // activate client card
-    /* App.client.on('click', function(){
-        $('.client_logo').removeClass('color_scale')
-        $('.client_review').removeClass('show_review')
-        $(this).find('.client_logo').toggleClass('color_scale')
-        $(this).find('.client_review').toggleClass('show_review');
-    }) */
 })
