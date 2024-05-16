@@ -299,7 +299,7 @@ body{
 }
 /* projects ***********************************************************/
 .projects{
-    padding: 50px 0;
+    padding: 100px 0 0;
 }
 .projects_container{
     display: flex;
@@ -390,7 +390,7 @@ body{
 /* clients ***********************************************************/
 .clients{
     min-height: 540px;
-    padding: 50px 0 100px;
+    padding: 100px 0 0;
 }
 .clients_container{
     display: flex;
@@ -447,7 +447,7 @@ body{
 }
 /* services ***********************************************************/
 .services{
-    padding: 20px 0 30px;
+    padding: 100px 0 0;
 }
 .services_container{
     display: flex;
@@ -514,25 +514,28 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.method{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px 0;
-    flex-basis: 30%;
-    padding: 20px 50px;
-    border: 2px solid var(--secondary-color);
-    border-radius: var(--radius);
-    transition: 0.5s all;
-    /* background-color: var(--primary-color); */
-}
 .contact_icon{
     font-size: 36px;
     font-weight: 700;
     color: var(--primary-color);
 }
 .method_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px 0;
+    flex-basis: 30%;
+
+    font-size: 20px;
+    padding: 20px 50px;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--radius);
+    transition: 0.5s all;
     color: var(--primary-color);
+    text-decoration: none;
+}
+.method_info:hover .method_text{
+    text-decoration: underline;
 }
 .scale_method{
     transform: scale(1.1);

@@ -19,6 +19,8 @@ const App = {
     mobMenu: $('.mobile_menu_btn'),
     mobMenuLink: $('.mobile_link'),
     contactCta: $('.contact_cta'),
+    homeLink: $('.desk_home_btn'),
+    desktopLinks: $('.desk_nav_links'),
 }
 
 $(document).ready(function(){
@@ -68,6 +70,13 @@ $(document).ready(function(){
     App.mobMenuLink.on('click', function(){
         $('.mobile_menu_links').toggleClass('menu_closed')
     })
+    App.desktopLinks.on('click', function(){
+        App.desktopLinks.removeClass('desktop_nav_active')
+        $(this).addClass('desktop_nav_active')
+    })
+    App.homeLink.on('click', function(){
+        $('html').scrollTop(0)
+    })
     App.projectLink.on('click', function(){
         showProjects()
     })
@@ -104,11 +113,11 @@ $(document).ready(function(){
     function highlightContact(){
         $('.contact')[0].scrollIntoView()
         setTimeout(() => {
-            $('.method').addClass('scale_method method_active')
+            $('.method_info').addClass('method_active')
             $('.method_info, .contact_icon').addClass('method_info_active')
         }, 1000);
         setTimeout(() => {
-        $('.method').removeClass('scale_method method_active')
+        $('.method_info').removeClass('method_active')
         $('.method_info, .contact_icon').removeClass('method_info_active')
         }, 2500);
     }
