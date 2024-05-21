@@ -74,6 +74,10 @@ $(document).ready(function(){
         App.desktopLinks.removeClass('desktop_nav_active')
         $(this).addClass('desktop_nav_active')
     })
+    App.mobMenuLink.on('click', function () {
+		App.mobMenuLink.removeClass('desktop_nav_active');
+		$(this).addClass('desktop_nav_active');
+	});
     App.homeLink.on('click', function(){
         $('html').scrollTop(0)
     })
@@ -117,7 +121,7 @@ $(document).ready(function(){
             $('.method_info, .contact_icon').addClass('method_info_active')
         }, 1000);
         setTimeout(() => {
-        $('.method_info').removeClass('method_active')
+    $('.method_info').removeClass('method_active')
         $('.method_info, .contact_icon').removeClass('method_info_active')
         }, 2500);
     }
