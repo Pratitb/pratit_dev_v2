@@ -1,13 +1,14 @@
 const App = {
 	darkMode: $('.dark_mode'),
-	preLoadAnim: $('.pre_load_animation'),
-	preLoadMessOne: $('.first_message'),
-	preLoadMessTwo: $('.second_message'),
-	preLoadCta: $('.pre_load_cta'),
-	atfImage: $('.atf_image'),
-	atfHead: $('.head'),
-	atfSubHead: $('.sub_head'),
-	atfCta: $('.atf_cta'),
+	// preLoadAnim: $('.pre_load_animation'),
+	// preLoadMessOne: $('.first_message'),
+	// preLoadMessTwo: $('.second_message'),
+	// preLoadCta: $('.pre_load_cta'),
+	// atfImage: $('.atf_image'),
+	// atfHead: $('.head'),
+	// atfSubHead: $('.sub_head'),
+	// atfCta: $('.atf_cta'),
+	devName: $('.comapny_name'),
 	projects: $('.projects'),
 	project: $('.project'),
 	projectsCta: $('.projects_cta'),
@@ -81,8 +82,11 @@ $(document).ready(function () {
 	App.homeLink.on('click', function () {
 		$('html').scrollTop(0);
 	});
-	App.projectLink.on('click', function () {
+	/* App.projectLink.on('click', function () {
 		showProjects();
+	}); */
+	App.devName.on('click', function () {
+		document.documentElement.scrollTop = 0;
 	});
 	App.clientLink.on('click', function () {
 		showClients();
@@ -104,9 +108,9 @@ $(document).ready(function () {
 	});
 
 	// go to these sections
-	function showProjects() {
+	/* function showProjects() {
 		App.projects[0].scrollIntoView();
-	}
+	} */
 	function showClients() {
 		$('.clients')[0].scrollIntoView();
 	}
@@ -126,15 +130,15 @@ $(document).ready(function () {
 	}
 
 	// section ctas
-	App.atfCta.on('click', function () {
+	/* App.atfCta.on('click', function () {
 		showProjects();
-	});
-	App.projectsCta.on('click', function () {
+	}); */
+	/* App.projectsCta.on('click', function () {
 		showClients();
-	});
-	$('.client_cta').on('click', function () {
+	}); */
+	/* $('.client_cta').on('click', function () {
 		showServices();
-	});
+	}); */
 	App.serviceCta.on('click', function () {
 		highlightContact();
 	});
