@@ -132,7 +132,7 @@ body {
 .nav_container {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	gap: 0 40px;
 	border-radius: var(--radius);
 	padding: 10px;
@@ -149,6 +149,13 @@ body {
 	color: var(--secondary-color);
 	text-transform: capitalize;
 	cursor: pointer;
+}
+.main_logo {
+	max-width: 250px;
+}
+.main_logo_dark {
+	display: none;
+	max-width: 250px;
 }
 .desk_nav_links {
 	display: flex;
@@ -911,16 +918,6 @@ body {
 .dark_styles_active .personal_desc {
 	color: #fff;
 }
-.dark_styles_active .service_head,
-.dark_styles_active .review_link {
-	color: var(--secondary-color);
-}
-.dark_styles_active .service_des {
-	color: #9e9e9e;
-}
-.dark_styles_active .review_name {
-	color: #ffe082;
-}
 /* background */
 .dark_styles_active,
 .dark_styles_active .pre_head_container,
@@ -933,6 +930,25 @@ body {
 .dark_styles_active .client_review_head,
 .dark_styles_active .service {
 	background-color: var(--ternary-color);
+}
+.dark_styles_active .service_head,
+.dark_styles_active .review_link {
+	color: var(--secondary-color);
+}
+.dark_styles_active .service_des {
+	color: #9e9e9e;
+}
+.dark_styles_active .review_name {
+	color: #ffe082;
+}
+.dark_styles_active .main_logo {
+	display: none;
+}
+.dark_styles_active .main_logo_dark {
+	display: flex;
+}
+.dark_styles_active .nav_container {
+	padding: 20px 10px 20px;
 }
 /* active class ***********************************************************/
 .dark_mode_active {
